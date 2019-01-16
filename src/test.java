@@ -1,7 +1,7 @@
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class test {
 
@@ -9,7 +9,7 @@ public class test {
         EntityManager em = Persistence.createEntityManagerFactory("NewPersistenceUnit").createEntityManager();
         EntityTransaction et = em.getTransaction();
         et.begin();
-        //em.createQuery("select * from ");
+        List employeeList = em.createQuery("select e from Employee e").getResultList();
 
     }
 }
